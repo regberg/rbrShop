@@ -9,13 +9,15 @@ import { HeaderTitleComponent } from './features/header/header-title/header-titl
 import { HeaderCartComponent } from './features/header/header-cart/header-cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './features/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent, HeaderComponent,
     HeaderLogoComponent,
     HeaderTitleComponent,
-    HeaderCartComponent
+    HeaderCartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
