@@ -10,6 +10,10 @@ import { HeaderCartComponent } from './features/header/header-cart/header-cart.c
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './features/footer/footer.component';
+import { NavigationComponent } from './features/navigation/navigation.component';
+import { SearchComponent } from './features/search/search.component';
+import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
+import { ProductsComponent } from './features/products/products.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { FooterComponent } from './features/footer/footer.component';
     HeaderLogoComponent,
     HeaderTitleComponent,
     HeaderCartComponent,
-    FooterComponent
+    FooterComponent,
+    NavigationComponent,
+    SearchComponent,
+    PageNotFoundComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
