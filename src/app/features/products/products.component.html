@@ -1,14 +1,14 @@
 <p>Produktanzahl: {{ getProductCount() }}</p>
 
 <div *ngFor="let product of getAllProducts$() | async">
-  <div class="product-item">
+  <div class="product-item" appChangeBorder>
     <div class="row">
       <div class="col-sm-1">
-        <img class="image-size" src="{{ product.image }}" alt="Hier Bildtitel einfügen" />
+        <img class="image-size" src="{{ product?.image }}" alt="Hier Bildtitel einfügen" />
       </div>
       <div class="col-sm-11">
         <div class="row">
-          <div class="col-sm-10">
+          <div class="col-sm-11">
             <h2>{{ product?.title | uppercase }}</h2>
             <h5>{{ product?.descriptionShort }}</h5>
             <b>Menge: {{ product?.amount }}, Preis: {{product?.price | currency: "EUR" }}</b>
