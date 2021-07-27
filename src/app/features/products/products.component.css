@@ -12,3 +12,10 @@ p {
   width: 100px;
   height: 100px;
 }
+
+.product-item {
+  margin-bottom: 5px;
+  background-color: #bdaec4;
+  color: #411375;
+  text-align: center;
+}
