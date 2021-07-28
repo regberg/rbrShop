@@ -1,7 +1,7 @@
 <p>Produktanzahl: {{ getProductCount() }}</p>
 
 <div *ngFor="let product of getAllProducts$() | async">
-  <div class="product-item" appChangeBorder>
+  <div class="product-item" appChangeBackgroundColor>
     <div class="row">
       <div class="col-sm-1">
         <img class="image-size" src="{{ product?.image }}" alt="Hier Bildtitel einfügen" />

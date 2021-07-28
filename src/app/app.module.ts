@@ -16,7 +16,7 @@ import { NavigationComponent } from './features/navigation/navigation.component'
 import { SearchComponent } from './features/search/search.component';
 import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
 import { ProductsComponent } from './features/products/products.component';
-import { ChangeBorderDirective } from './shared/directives/change-border.directive';
+import { ChangeBackgroundColorDirective } from './shared/directives/change-background-color.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { ChangeBorderDirective } from './shared/directives/change-border.directi
     SearchComponent,
     PageNotFoundComponent,
     ProductsComponent,
-    ChangeBorderDirective,
+    ChangeBackgroundColorDirective,
   ],
   imports: [
     BrowserModule,
