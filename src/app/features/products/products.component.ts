@@ -7,9 +7,9 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /**
    * @returns die Anzahl der Produkte

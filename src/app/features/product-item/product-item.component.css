@@ -1,0 +1,16 @@
+.image-size {
+  width: 100px;
+  height: 100px;
+}
+
+.product-item {
+  margin-bottom: 5px;
+  background-color: #bdaec4;
+  color: #411375;
+  text-align: center;
+}
+
+.product-details {
+  border-top: 2px solid #411375;
+  cursor: pointer;
+}

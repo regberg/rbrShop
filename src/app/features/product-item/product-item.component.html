@@ -1,0 +1,25 @@
+<div class="product-item" appChangeBackgroundColor>
+  <div class="row">
+    <div class="col-sm-1">
+      <img class="image-size" src="{{ product?.image }}" alt="Hier Bildtitel einfügen" />
+    </div>
+
+    <div class="col-sm-11">
+      <div class="row">
+        <div class="col-sm-11">
+          <h2>{{ product?.title | uppercase }}</h2>
+          <h5>{{ product?.descriptionShort }}</h5>
+          <b>Menge: {{ product?.amount }}, Preis:
+            {{ product?.price | currency: "EUR" }}</b>
+        </div>
+
+        <div class="product-details col-sm-11" (click)="showLongDescription = !showLongDescription">
+          <fa-icon [icon]="showLongDescription ? faCaretSquareUp : faCaretSquareDown"></fa-icon>
+          <p *ngIf="showLongDescription">
+            {{ product?.descriptionLong }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
