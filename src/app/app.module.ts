@@ -18,6 +18,8 @@ import { PageNotFoundComponent } from './features/page-not-found/page-not-found.
 import { ProductsComponent } from './features/products/products.component';
 import { ChangeBackgroundColorDirective } from './shared/directives/change-background-color.directive';
 import { ProductItemComponent } from './features/product-item/product-item.component';
+import { FormsModule } from '@angular/forms';
+import { ChangeBorderDirective } from './shared/directives/change-border.directive';
 
 @NgModule({
   declarations: [
@@ -33,12 +35,14 @@ import { ProductItemComponent } from './features/product-item/product-item.compo
     ProductsComponent,
     ChangeBackgroundColorDirective,
     ProductItemComponent,
+    ChangeBorderDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [
     {
