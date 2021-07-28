@@ -6,14 +6,26 @@
 
     <div class="col-sm-11">
       <div class="row">
+
         <div class="col-sm-11">
           <h2>{{ product?.title | uppercase }}</h2>
+        </div>
+
+        <div class="col-sm-11">
           <h5>{{ product?.descriptionShort }}</h5>
           <b>Menge: {{ product?.amount }}, Preis:
             {{ product?.price | currency: "EUR" }}</b>
         </div>
 
-        <div class="product-details col-sm-11" (click)="showLongDescription = !showLongDescription">
+        <div class="cart col-sm-11" title="In den Warenkorb" (click)="clickOnCart()">
+          <fa-icon [icon]="faCartPlus"></fa-icon>
+        </div>
+
+        <div class="product-details col-sm-11" (click)="showLongDescription = !showLongDescription" [title]="
+            showLongDescription
+              ? 'Produktdetails zuklappen'
+              : 'Produktdetails aufklappen'
+          ">
           <fa-icon [icon]="showLongDescription ? faCaretSquareUp : faCaretSquareDown"></fa-icon>
           <p *ngIf="showLongDescription">
             {{ product?.descriptionLong }}

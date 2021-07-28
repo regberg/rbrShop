@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {
   faCaretSquareDown,
   faCaretSquareUp,
+  faCartPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 
@@ -19,5 +20,13 @@ export class ProductItemComponent implements OnInit {
 
   public faCaretSquareDown = faCaretSquareDown;
   public faCaretSquareUp = faCaretSquareUp;
+  public faCartPlus = faCartPlus;
   public showLongDescription = false;
+
+  /**
+   * clickOnCart
+   */
+  public clickOnCart() {
+    console.log("###################TEST");
+  }
 }
