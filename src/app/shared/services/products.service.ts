@@ -31,7 +31,7 @@ export class ProductsService {
       price: '994.41',
       currency: 'PHP',
       amount: 71,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ export class ProductsService {
       price: '910.13',
       currency: 'CNY',
       amount: 18,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 5,
@@ -78,7 +78,7 @@ export class ProductsService {
       price: '906.99',
       currency: 'RUB',
       amount: 21,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 7,
@@ -101,7 +101,7 @@ export class ProductsService {
       price: '273.54',
       currency: 'PLN',
       amount: 21,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 9,
@@ -124,7 +124,7 @@ export class ProductsService {
       price: '896.42',
       currency: 'ETB',
       amount: 23,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 11,
@@ -146,7 +146,7 @@ export class ProductsService {
       price: '670.20',
       currency: 'SEK',
       amount: 23,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 13,
@@ -170,7 +170,7 @@ export class ProductsService {
       price: '511.49',
       currency: 'XOF',
       amount: 89,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 15,
@@ -192,7 +192,7 @@ export class ProductsService {
       price: '676.94',
       currency: 'COP',
       amount: 63,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 17,
@@ -215,7 +215,7 @@ export class ProductsService {
       price: '138.20',
       currency: 'IDR',
       amount: 90,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 19,
@@ -237,7 +237,7 @@ export class ProductsService {
       price: '312.25',
       currency: 'PLN',
       amount: 45,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 21,
@@ -261,7 +261,7 @@ export class ProductsService {
       price: '502.99',
       currency: 'CNY',
       amount: 81,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 23,
@@ -284,7 +284,7 @@ export class ProductsService {
       price: '756.66',
       currency: 'IDR',
       amount: 41,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 25,
@@ -306,7 +306,7 @@ export class ProductsService {
       price: '79.59',
       currency: 'ARS',
       amount: 77,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 27,
@@ -327,7 +327,7 @@ export class ProductsService {
       price: '593.63',
       currency: 'PHP',
       amount: 59,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 29,
@@ -348,7 +348,7 @@ export class ProductsService {
       price: '874.19',
       currency: 'RSD',
       amount: 95,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 31,
@@ -372,7 +372,7 @@ export class ProductsService {
       price: '718.45',
       currency: 'HRK',
       amount: 94,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 33,
@@ -396,7 +396,7 @@ export class ProductsService {
       price: '730.79',
       currency: 'IDR',
       amount: 10,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 35,
@@ -419,7 +419,7 @@ export class ProductsService {
       price: '45.14',
       currency: 'IDR',
       amount: 86,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 37,
@@ -441,7 +441,7 @@ export class ProductsService {
       price: '225.49',
       currency: 'THB',
       amount: 36,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 39,
@@ -465,7 +465,7 @@ export class ProductsService {
       price: '496.12',
       currency: 'IDR',
       amount: 85,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 41,
@@ -486,7 +486,7 @@ export class ProductsService {
       price: '291.70',
       currency: 'CAD',
       amount: 94,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 43,
@@ -506,7 +506,7 @@ export class ProductsService {
       price: '637.21',
       currency: 'EUR',
       amount: 87,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 45,
@@ -530,7 +530,7 @@ export class ProductsService {
       price: '431.55',
       currency: 'KRW',
       amount: 71,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 47,
@@ -554,7 +554,7 @@ export class ProductsService {
       price: '705.51',
       currency: 'BRL',
       amount: 7,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
     {
       id: 49,
@@ -577,7 +577,7 @@ export class ProductsService {
       price: '428.57',
       currency: 'CUP',
       amount: 21,
-      image: 'assets/images/produktbilder/abstract-wave.svg',
+      image: 'assets/images/produktbilder/abstract-eye.svg',
     },
   ];
 

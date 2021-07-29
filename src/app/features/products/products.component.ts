@@ -85,7 +85,8 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
    * @param product das hinzuzufügende Product-Objekt
    */
   public assignProductToActualOrder(product: Product) {
-    let order = this.ordersService.getActualOrder().products.push(product);
+    let order = this.ordersService.getActualOrder();
+    order.products.push(product);
 
     console.log('AKTUELL: ', order);
   }
