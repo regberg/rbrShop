@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   faCaretSquareDown,
   faCaretSquareUp,
@@ -17,6 +17,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void { }
 
   @Input() product: Product;
+  @Output() addProductToCartEvent = new EventEmitter<Product>();
 
   public faCaretSquareDown = faCaretSquareDown;
   public faCaretSquareUp = faCaretSquareUp;
@@ -27,6 +28,8 @@ export class ProductItemComponent implements OnInit {
    * clickOnCart
    */
   public clickOnCart() {
-    console.log("###################TEST");
+    console.log('################### clickOnCart()');
+
+    this.addProductToCartEvent.emit(this.product);
   }
 }

@@ -16,7 +16,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() searchString = "";
+  @Input() searchString = '';
   public products$: Observable<Product[]>;
   public subscription: Subscription;
   public numberResults;
@@ -46,4 +46,9 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+  /**
+   * addProductToCart
+   **/
+  public addProductToCart(product: Product) { }
 }
