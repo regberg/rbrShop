@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/shared/interfaces/product.interface';
+import { OrdersService } from 'src/app/shared/services/orders.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
@@ -17,18 +18,43 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 })
 export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
   @Input() searchString = '';
+
   public products$: Observable<Product[]>;
   public subscription: Subscription;
   public numberResults;
 
-  constructor(private productsService: ProductsService) { }
+  /**
+   * Injiziert "productsService" und "ordersService".
+   *
+   * @param productsService
+   *
+   * @param ordersService
+   */
+  constructor(
+    private productsService: ProductsService,
+    private ordersService: OrdersService
+  ) { }
 
+  /**
+   * Ermittelt die anzuzeigenden Product-Objekte, deren Anzahl
+   * und erzeugt ein neues Order-Objekt mit aktuellem Status,
+   * falls dieses noch nicht vorhanden ist.
+   */
   ngOnInit(): void {
     this.products$ = this.productsService.getAllProducts$();
-
     this.setNumberResults();
+
+    if (!this.ordersService.getActualOrder()) {
+      this.ordersService.createNewOrderAndAddToOrders(`orderAt-${new Date()}`);
+    }
   }
 
+  /**
+   * Wird beim Ändern des Inhalts des Eingabefelds aufgerufen.
+   * Ermittelt die gefilterten Product-Objekte und deren Anzahl.
+   *
+   * @param changes
+   */
   ngOnChanges(changes: SimpleChanges): void {
     this.products$ = this.productsService.getFilteredProducts$(
       this.searchString
@@ -37,18 +63,30 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
     this.setNumberResults();
   }
 
+  /**
+   * ngOnDestroy()
+   */
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  /**
+   * Setzt die Anzahl der ermittelten Product-Objekte.
+   */
   private setNumberResults() {
     this.subscription = this.products$.subscribe(
       (products) => (this.numberResults = products.length)
     );
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   /**
-   * addProductToCart
-   **/
-  public addProductToCart(product: Product) { }
+   * Ordnet "product" dem aktuellen Order-Objekt zu.
+   *
+   * @param product das hinzuzufügende Product-Objekt
+   */
+  public assignProductToActualOrder(product: Product) {
+    let order = this.ordersService.getActualOrder().products.push(product);
+
+    console.log('AKTUELL: ', order);
+  }
 }

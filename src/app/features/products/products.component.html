@@ -6,7 +6,8 @@
   <p>Produktanzahl: {{ numberResults }}</p>
 </ng-template>
 
-
 <div *ngFor="let product of products$ | async">
-  <app-product-item [product]="product"></app-product-item>
+  <app-product-item [product]="product" (assignProductToActualOrderEventEmitter)="
+      assignProductToActualOrder($event)">
+  </app-product-item>
 </div>

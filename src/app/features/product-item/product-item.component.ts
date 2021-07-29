@@ -17,7 +17,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit(): void { }
 
   @Input() product: Product;
-  @Output() addProductToCartEvent = new EventEmitter<Product>();
+  @Output() assignProductToActualOrderEventEmitter = new EventEmitter<Product>();
 
   public faCaretSquareDown = faCaretSquareDown;
   public faCaretSquareUp = faCaretSquareUp;
@@ -25,11 +25,10 @@ export class ProductItemComponent implements OnInit {
   public showLongDescription = false;
 
   /**
-   * clickOnCart
+   * Sendet bei Klick auf das Warenkorbsymbol das ausgewählte Product-Objekt
+   * und verwertet dieses weiter in der übergeordneten ProductsComponent.
    */
   public clickOnCart() {
-    console.log('################### clickOnCart()');
-
-    this.addProductToCartEvent.emit(this.product);
+    this.assignProductToActualOrderEventEmitter.emit(this.product);
   }
 }
