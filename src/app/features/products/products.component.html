@@ -1,5 +1,12 @@
-<p>Produktanzahl: {{ getProductCount() }}</p>
+<div *ngIf="searchString; else listProducts">
+  <p>Suchergebnisse: {{ numberResults }}</p>
+</div>
 
-<div *ngFor="let product of getAllProducts$() | async">
+<ng-template #listProducts>
+  <p>Produktanzahl: {{ numberResults }}</p>
+</ng-template>
+
+
+<div *ngFor="let product of products$ | async">
   <app-product-item [product]="product"></app-product-item>
 </div>

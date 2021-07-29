@@ -1,4 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { Product } from 'src/app/shared/interfaces/product.interface';
 import { ProductsService } from 'src/app/shared/services/products.service';
 
 @Component({
@@ -6,22 +15,35 @@ import { ProductsService } from 'src/app/shared/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() searchString = "";
+  public products$: Observable<Product[]>;
+  public subscription: Subscription;
+  public numberResults;
+
   constructor(private productsService: ProductsService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.products$ = this.productsService.getAllProducts$();
 
-  /**
-   * @returns die Anzahl der Produkte
-   */
-  public getProductCount() {
-    return this.productsService.getProductCount();
+    this.setNumberResults();
   }
 
-  /**
-   * @returns alle Produkte als Observable
-   */
-  public getAllProducts$() {
-    return this.productsService.getAllProducts$();
+  ngOnChanges(changes: SimpleChanges): void {
+    this.products$ = this.productsService.getFilteredProducts$(
+      this.searchString
+    );
+
+    this.setNumberResults();
+  }
+
+  private setNumberResults() {
+    this.subscription = this.products$.subscribe(
+      (products) => (this.numberResults = products.length)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
