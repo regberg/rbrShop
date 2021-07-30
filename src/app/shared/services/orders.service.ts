@@ -8,6 +8,7 @@ import { Status } from '../enums/status.enum';
 export class OrdersService {
   public orders: Order[] = [];
   private index = 0;
+  private actualOrder;
 
   constructor() { }
 
@@ -32,8 +33,14 @@ export class OrdersService {
    * @returns liefert das erste Order-Objekt mit aktuellem Status aus dem absteigend nach Datum sortierten Order-Array.
    */
   public getActualOrder() {
-    this.sortOrdersByDate();
-    return this.orders.find((order) => order.status === Status.actual);
+    if (this.actualOrder === undefined || this.actualOrder === null) {
+      this.sortOrdersByDate();
+      this.actualOrder = this.orders.find(
+        (order) => order.status === Status.actual
+      );
+    }
+
+    return this.actualOrder;
   }
 
   /**
@@ -61,6 +68,14 @@ export class OrdersService {
     }
 
     return 0;
+  }
+
+  /**
+   * @returns Liefert die Anzahl der Produkte,
+   * die dem aktuellen Order-Objekt zugeordnet sind.
+   */
+  public getActualOrderProductCount() {
+    return this.getActualOrder().products.length;
   }
 }
 
