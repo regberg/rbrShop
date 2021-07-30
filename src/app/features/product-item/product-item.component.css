@@ -1,6 +1,7 @@
 .image-size {
   width: 135px;
   height: 135px;
+  border-radius: 5px;
 }
 
 .product-item {

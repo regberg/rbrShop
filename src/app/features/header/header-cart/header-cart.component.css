@@ -12,3 +12,8 @@ span {
   font-weight: bold;
   padding-top: 2px;
 }
+
+label {
+  color: #e0b7cf;
+  font-weight: bold;
+}

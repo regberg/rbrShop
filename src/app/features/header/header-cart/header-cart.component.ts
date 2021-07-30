@@ -21,4 +21,11 @@ export class HeaderCartComponent implements OnInit {
   public getActualOrderProductCount() {
     return this.ordersService.getActualOrderProductCount();
   }
+
+  /**
+   * @returns Liefert den zu zahlenden Betrag der bestellten Produkte.
+   */
+  public getTotalAmount() {
+    return this.ordersService.getTotalAmount();
+  }
 }

@@ -13,8 +13,8 @@
         <div class="col-sm-11">
           <h4>{{ product?.descriptionShort }}</h4>
           <h5>
-            Menge: {{ product?.amount }}, Preis:
-            {{ product?.price | currency: "EUR" }}
+            Menge: {{ product?.amount }}, Preis: {{ product?.price | number }}
+            {{ product?.currency }}
           </h5>
         </div>
 
@@ -25,7 +25,8 @@
         <div class="product-details col-sm-11" (click)="showLongDescription = !showLongDescription" [title]="
             showLongDescription
               ? 'Produktdetails zuklappen'
-              : 'Produktdetails aufklappen'">
+              : 'Produktdetails aufklappen'
+          ">
           <fa-icon [icon]="showLongDescription ? faCaretSquareUp : faCaretSquareDown"></fa-icon>
           <h5 *ngIf="showLongDescription">{{ product?.descriptionLong }}</h5>
         </div>

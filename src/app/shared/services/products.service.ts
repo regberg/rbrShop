@@ -582,22 +582,35 @@ export class ProductsService {
   ];
 
   /**
+   * Soll die Product-Objekte enthalten, deren Währung "RUB","CAD","IDR", "EUR" ist.
+   */
+  private productsWithSelectedCurrency;
+
+  /**
    * Konstruktor
    */
   constructor() { }
 
   /**
-   * @returns alle Produkte als Observable
+   * @returns alle Produkte mit den Währungen "RUB","CAD","IDR", "EUR" als Observable
    */
   public getAllProducts$(): Observable<Product[]> {
-    return of(this.products);
+    this.productsWithSelectedCurrency = this.products.filter(
+      (prod) =>
+        prod.currency === 'RUB' ||
+        prod.currency === 'CAD' ||
+        prod.currency === 'IDR' ||
+        prod.currency === 'EUR'
+    );
+
+    return of(this.productsWithSelectedCurrency);
   }
 
   /**
    * @returns die Anzahl der Produkte
    */
   public getProductCount(): number {
-    return this.products.length;
+    return this.productsWithSelectedCurrency.length;
   }
 
   /**
@@ -606,7 +619,9 @@ export class ProductsService {
    * @returns Produkt, dessen Id mit "id" übereinstimmt
    */
   public getProductById(id: number): Product {
-    return this.products.find((product) => product.id === id);
+    return this.productsWithSelectedCurrency.find(
+      (product) => product.id === id
+    );
   }
 
   /**

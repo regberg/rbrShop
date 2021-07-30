@@ -77,6 +77,13 @@ export class OrdersService {
   public getActualOrderProductCount() {
     return this.getActualOrder().products.length;
   }
+
+  /**
+   * @returns Liefert den zu zahlenden Betrag für die bestellten Produkte.
+   */
+  public getTotalAmount() {
+    return 1000;
+  }
 }
 
 /**
