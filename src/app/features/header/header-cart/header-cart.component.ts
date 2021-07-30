@@ -8,9 +8,9 @@ import { OrdersService } from 'src/app/shared/services/orders.service';
   styleUrls: ['./header-cart.component.css'],
 })
 export class HeaderCartComponent implements OnInit {
-  constructor(private ordersService: OrdersService) {}
+  constructor(private ordersService: OrdersService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public shoppingCartIcon = faShoppingCart;
 
@@ -23,9 +23,9 @@ export class HeaderCartComponent implements OnInit {
   }
 
   /**
-   * @returns Liefert den zu zahlenden Betrag der bestellten Produkte.
+   * @returns Liefert den zu zahlenden Betrag in EUR der bestellten Produkte.
    */
-  public getTotalAmount() {
-    return this.ordersService.getTotalAmount();
+  public getTotalAmountEur() {
+    return this.ordersService.getTotalAmountEur();
   }
 }

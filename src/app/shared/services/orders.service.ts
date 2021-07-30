@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Order } from '../interfaces/order.interface';
 import { Status } from '../enums/status.enum';
+import { CalculationService } from './calculation.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class OrdersService {
   private index = 0;
   private actualOrder;
 
-  constructor() { }
+  constructor(private calcService: CalculationService) {}
 
   /**
    * Erzeugt ein neues Order-Objekt und fügt es "this.orders" hinzu.
@@ -79,10 +80,20 @@ export class OrdersService {
   }
 
   /**
-   * @returns Liefert den zu zahlenden Betrag für die bestellten Produkte.
+   * @returns Liefert den zu zahlenden Betrag in EUR für die bestellten Produkte.
    */
-  public getTotalAmount() {
-    return 1000;
+  public getTotalAmountEur() {
+    let totalAmountEur = 0;
+
+    this.getActualOrder().products.forEach(
+      (prod) =>
+        (totalAmountEur += this.calcService.convertToEuro(
+          prod.amount,
+          prod.currency
+        ))
+    );
+
+    return totalAmountEur;
   }
 }
 

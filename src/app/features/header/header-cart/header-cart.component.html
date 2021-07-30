@@ -1,3 +1,3 @@
 <fa-icon class="fa-3x" [icon]="shoppingCartIcon"></fa-icon>
 <span [style.paddingLeft]="getActualOrderProductCount() > 9 ? '6px' : '11px'">{{getActualOrderProductCount()}}</span>
-<label class="offset-md-1">{{ getTotalAmount() }}</label>
+<label class="offset-md-1">{{ getTotalAmountEur() | currency:"EUR" }}</label>
