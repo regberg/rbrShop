@@ -20,6 +20,7 @@ import { ChangeBackgroundColorDirective } from './shared/directives/change-backg
 import { ProductItemComponent } from './features/product-item/product-item.component';
 import { FormsModule } from '@angular/forms';
 import { ChangeBorderDirective } from './shared/directives/change-border.directive';
+import { CalculateToEurPipe } from './shared/pipes/calculate-to-eur.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ChangeBorderDirective } from './shared/directives/change-border.directi
     ChangeBackgroundColorDirective,
     ProductItemComponent,
     ChangeBorderDirective,
+    CalculateToEurPipe,
   ],
   imports: [
     BrowserModule,

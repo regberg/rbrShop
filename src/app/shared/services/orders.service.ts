@@ -7,11 +7,11 @@ import { CalculationService } from './calculation.service';
   providedIn: 'root',
 })
 export class OrdersService {
-  public orders: Order[] = [];
   private index = 0;
+  public orders: Order[] = [];
   private actualOrder;
 
-  constructor(private calcService: CalculationService) {}
+  constructor(private calcService: CalculationService) { }
 
   /**
    * Erzeugt ein neues Order-Objekt und fügt es "this.orders" hinzu.
@@ -87,10 +87,10 @@ export class OrdersService {
 
     this.getActualOrder().products.forEach(
       (prod) =>
-        (totalAmountEur += this.calcService.convertToEuro(
-          prod.amount,
-          prod.currency
-        ))
+      (totalAmountEur += this.calcService.convertToEuro(
+        prod.price,
+        prod.currency
+      ))
     );
 
     return totalAmountEur;

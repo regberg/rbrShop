@@ -13,8 +13,12 @@
         <div class="col-sm-11">
           <h4>{{ product?.descriptionShort }}</h4>
           <h5>
-            Menge: {{ product?.amount }}, Preis: {{ product?.price | number }}
-            {{ product?.currency }}
+            Menge: {{ product?.amount }}, Preis:
+            {{
+            product?.price
+            | calculateToEur: product?.currency
+            | currency: "EUR"
+            }}
           </h5>
         </div>
 
