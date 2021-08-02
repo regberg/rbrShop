@@ -1,0 +1,9 @@
+<div *ngIf="getOrders()?.length > 0; else keineBestellungenVorhanden">
+  <div *ngFor="let order of getOrders()">
+    <app-order [order]="order"></app-order>
+  </div>
+</div>
+
+<ng-template #keineBestellungenVorhanden>
+  keine Bestellungen vorhanden
+</ng-template>

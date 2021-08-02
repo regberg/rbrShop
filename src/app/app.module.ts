@@ -21,6 +21,9 @@ import { ProductItemComponent } from './features/product-item/product-item.compo
 import { FormsModule } from '@angular/forms';
 import { ChangeBorderDirective } from './shared/directives/change-border.directive';
 import { CalculateToEurPipe } from './shared/pipes/calculate-to-eur.pipe';
+import { CartComponent } from './features/cart/cart.component';
+import { OrderComponent } from './features/order/order.component';
+import { OrderProductComponent } from './features/order-product/order-product.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { CalculateToEurPipe } from './shared/pipes/calculate-to-eur.pipe';
     ProductItemComponent,
     ChangeBorderDirective,
     CalculateToEurPipe,
+    CartComponent,
+    OrderComponent,
+    OrderProductComponent,
   ],
   imports: [
     BrowserModule,

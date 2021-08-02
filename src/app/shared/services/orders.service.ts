@@ -11,7 +11,14 @@ export class OrdersService {
   public orders: Order[] = [];
   private actualOrder;
 
-  constructor(private calcService: CalculationService) { }
+  constructor(private calcService: CalculationService) {}
+
+  /**
+   * @returns Liefert die getätigten Bestellungen.
+   */
+  public getOrders() {
+    return this.orders;
+  }
 
   /**
    * Erzeugt ein neues Order-Objekt und fügt es "this.orders" hinzu.
@@ -33,14 +40,28 @@ export class OrdersService {
   /**
    * @returns liefert das erste Order-Objekt mit aktuellem Status aus dem absteigend nach Datum sortierten Order-Array.
    */
-  public getActualOrder() {
+  public setActualOrder() {
     if (this.actualOrder === undefined || this.actualOrder === null) {
       this.sortOrdersByDate();
-      this.actualOrder = this.orders.find(
-        (order) => order.status === Status.actual
-      );
-    }
 
+      if (
+        this.orders !== undefined &&
+        this.orders !== null &&
+        this.orders.length > 0
+      ) {
+        this.actualOrder = this.orders.find(
+          (order) => order.status === Status.actual
+        );
+      } else {
+        this.actualOrder == null;
+      }
+    }
+  }
+
+  /**
+   * @returns Liefert die Bestellung mit Status "actual".
+   */
+  public getActualOrder() {
     return this.actualOrder;
   }
 
@@ -76,7 +97,11 @@ export class OrdersService {
    * die dem aktuellen Order-Objekt zugeordnet sind.
    */
   public getActualOrderProductCount() {
-    return this.getActualOrder().products.length;
+    let actualOrderProductCount = this.getActualOrder()?.products
+      ? this.getActualOrder().products.length
+      : 0;
+
+    return actualOrderProductCount;
   }
 
   /**
@@ -85,12 +110,12 @@ export class OrdersService {
   public getTotalAmountEur() {
     let totalAmountEur = 0;
 
-    this.getActualOrder().products.forEach(
+    this.getActualOrder()?.products.forEach(
       (prod) =>
-      (totalAmountEur += this.calcService.convertToEuro(
-        prod.price,
-        prod.currency
-      ))
+        (totalAmountEur += this.calcService.convertToEuro(
+          prod.price,
+          prod.currency
+        ))
     );
 
     return totalAmountEur;

@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
   constructor(
     private productsService: ProductsService,
     private ordersService: OrdersService
-  ) { }
+  ) {}
 
   /**
    * Ermittelt die anzuzeigenden Product-Objekte, deren Anzahl
@@ -43,8 +43,12 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit(): void {
     this.products$ = this.productsService.getAllProducts$();
     this.setNumberResults();
+    this.ordersService.setActualOrder();
 
-    if (!this.ordersService.getActualOrder()) {
+    if (
+      this.ordersService.getActualOrder() === undefined ||
+      this.ordersService.getActualOrder() === null
+    ) {
       this.ordersService.createNewOrderAndAddToOrders(`orderAt-${new Date()}`);
     }
   }
@@ -86,8 +90,6 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
    */
   public assignProductToActualOrder(product: Product) {
     let order = this.ordersService.getActualOrder();
-    order.products.push(product);
-
-    console.log('AKTUELL: ', order);
+    order?.products.push(product);
   }
 }

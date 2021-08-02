@@ -1,0 +1,9 @@
+<p>{{ order.name }}</p>
+
+<div *ngIf="order?.products?.length > 0; else keineProdukteAusgewaehlt">
+  <div *ngFor="let prod of order.products">
+    <app-order-product [prod]="prod"></app-order-product>
+  </div>
+</div>
+
+<ng-template #keineProdukteAusgewaehlt> keine Produkte ausgewählt </ng-template>
