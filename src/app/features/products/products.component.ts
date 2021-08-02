@@ -43,7 +43,6 @@ export class ProductsComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit(): void {
     this.products$ = this.productsService.getAllProducts$();
     this.setNumberResults();
-    this.ordersService.setActualOrder();
 
     if (
       this.ordersService.getActualOrder() === undefined ||

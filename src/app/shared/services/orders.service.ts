@@ -11,7 +11,7 @@ export class OrdersService {
   public orders: Order[] = [];
   private actualOrder;
 
-  constructor(private calcService: CalculationService) {}
+  constructor(private calcService: CalculationService) { }
 
   /**
    * @returns Liefert die getätigten Bestellungen.
@@ -34,7 +34,8 @@ export class OrdersService {
       status: Status.actual,
     };
 
-    this.orders.push(newOrder);
+    this.actualOrder = newOrder;
+    this.orders.push(this.actualOrder);
   }
 
   /**
@@ -53,7 +54,7 @@ export class OrdersService {
           (order) => order.status === Status.actual
         );
       } else {
-        this.actualOrder == null;
+        this.actualOrder = null;
       }
     }
   }
@@ -112,10 +113,10 @@ export class OrdersService {
 
     this.getActualOrder()?.products.forEach(
       (prod) =>
-        (totalAmountEur += this.calcService.convertToEuro(
-          prod.price,
-          prod.currency
-        ))
+      (totalAmountEur += this.calcService.convertToEuro(
+        prod.price,
+        prod.currency
+      ))
     );
 
     return totalAmountEur;
