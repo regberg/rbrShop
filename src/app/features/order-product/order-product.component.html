@@ -1,1 +1,12 @@
-<p>{{ prod.title }}</p>
+<div class="row">
+  <div class="col-sm-1">
+    <img class="image-size" src="{{ prod?.image }}" alt="Hier Bildtitel einfügen" />
+  </div>
+  <div class="col-sm-3">
+    <b>{{ prod.title }}</b>
+  </div>
+  <div class="col-sm-3">{{ prod.descriptionShort }}</div>
+  <div class="col-sm-3">
+    <b>{{ prod?.price | calculateToEur: prod?.currency | currency: "EUR" }}</b>
+  </div>
+</div>
