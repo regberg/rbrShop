@@ -17,6 +17,7 @@
   cursor: pointer;
 }
 
-.cart {
+button {
+  background-color: #bdaec4;
   cursor: pointer;
 }

@@ -22,8 +22,10 @@
           </h5>
         </div>
 
-        <div class="cart col-sm-11" title="In den Warenkorb" (click)="clickOnCart()">
-          <fa-icon [icon]="faCartPlus"></fa-icon>
+        <div class="col-sm-11">
+          <button appChangeBackgroundColor title="In den Warenkorb" (click)="clickOnCart()">
+            <fa-icon [icon]="faCartPlus"></fa-icon>
+          </button>
         </div>
 
         <div class="product-details col-sm-11" (click)="showLongDescription = !showLongDescription" [title]="
