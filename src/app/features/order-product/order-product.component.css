@@ -13,3 +13,9 @@ div {
   border-radius: 5px;
   margin-left: 2px;
 }
+
+button {
+  background-color: #f0d8e5;
+  color: #9e517e;
+  margin-top: 2px;
+}

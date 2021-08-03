@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CalculationService } from 'src/app/shared/services/calculation.service';
-import { OrdersService } from 'src/app/shared/services/orders.service';
+import { faTrash, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-order-product',
@@ -8,9 +7,11 @@ import { OrdersService } from 'src/app/shared/services/orders.service';
   styleUrls: ['./order-product.component.css'],
 })
 export class OrderProductComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   @Input() prod;
+
+  public faTrashAlt = faTrashAlt;
 }
