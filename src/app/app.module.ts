@@ -24,6 +24,7 @@ import { CalculateToEurPipe } from './shared/pipes/calculate-to-eur.pipe';
 import { CartComponent } from './features/cart/cart.component';
 import { OrderComponent } from './features/order/order.component';
 import { OrderProductComponent } from './features/order-product/order-product.component';
+import { OrderProductDetailComponent } from './features/order-product-detail/order-product-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { OrderProductComponent } from './features/order-product/order-product.co
     CartComponent,
     OrderComponent,
     OrderProductComponent,
+    OrderProductDetailComponent,
   ],
   imports: [
     BrowserModule,
