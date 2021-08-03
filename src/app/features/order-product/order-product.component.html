@@ -3,13 +3,13 @@
     <img class="image-size" src="{{ prod?.image }}" alt="Hier Bildtitel einfügen" />
   </div>
 
-  <div class="col-sm-3" [routerLink]="['order-product-detail', prod?.id]">
+  <a class="col-sm-3 link-colour" [routerLink]="['order-product-detail', prod?.id]">
     <b>{{ prod.title }}</b>
-  </div>
+  </a>
 
-  <div class="col-sm-3" [routerLink]="['order-product-detail', prod?.id]">
+  <a class="col-sm-3 link-colour" [routerLink]="['order-product-detail', prod?.id]">
     {{ prod.descriptionShort }}
-  </div>
+  </a>
 
   <div class="col-sm-3">
     <b>{{ prod?.price | calculateToEur: prod?.currency | currency: "EUR" }}</b>

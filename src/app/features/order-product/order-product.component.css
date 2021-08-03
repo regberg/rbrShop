@@ -19,3 +19,23 @@ button {
   color: #9e517e;
   margin-top: 2px;
 }
+
+a.link-colour:link {
+  color: #9e517e;
+}
+
+a.link-colour:visited {
+  color: #915da5;
+}
+
+a.link-colour:focus {
+  color: #f30b92;
+}
+
+a.link-colour:hover {
+  color: #c5197d;
+}
+
+a.link-colour:active {
+  color: #f30b92;
+}
