@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { OrdersService } from 'src/app/shared/services/orders.service';
 
 @Component({
   selector: 'app-order',
@@ -6,9 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-  constructor() { }
+  constructor(private ordersService: OrdersService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   @Input() order;
+
+  /**
+   * @returns Liefert den zu zahlenden Betrag für die bestellten Produkte.
+   */
+  public getTotalAmoutEur() {
+    return this.ordersService.getTotalAmountEur();
+  }
 }
