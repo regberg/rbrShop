@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Order } from '../interfaces/order.interface';
 import { Status } from '../enums/status.enum';
 import { CalculationService } from './calculation.service';
+import { Product } from '../interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,14 +12,7 @@ export class OrdersService {
   public orders: Order[] = [];
   private actualOrder;
 
-  constructor(private calcService: CalculationService) { }
-
-  /**
-   * @returns Liefert die getätigten Bestellungen.
-   */
-  public getOrders() {
-    return this.orders;
-  }
+  constructor(private calcService: CalculationService) {}
 
   /**
    * Erzeugt ein neues Order-Objekt und fügt es "this.orders" hinzu.
@@ -60,13 +54,6 @@ export class OrdersService {
   }
 
   /**
-   * @returns Liefert die Bestellung mit Status "actual".
-   */
-  public getActualOrder() {
-    return this.actualOrder;
-  }
-
-  /**
    * Sortiert "this.orders" absteigend nach Datum.
    *
    * @returns liefert 0, 1, -1 je nach Datum der zu sortierenen Order-Objekte.
@@ -94,6 +81,20 @@ export class OrdersService {
   }
 
   /**
+   * @returns Liefert die Bestellung mit Status "actual".
+   */
+  public getActualOrder() {
+    return this.actualOrder;
+  }
+
+  /**
+   * @returns Liefert die getätigten Bestellungen.
+   */
+  public getOrders() {
+    return this.orders;
+  }
+
+  /**
    * @returns Liefert die Anzahl der Produkte,
    * die dem aktuellen Order-Objekt zugeordnet sind.
    */
@@ -113,13 +114,28 @@ export class OrdersService {
 
     this.getActualOrder()?.products.forEach(
       (prod) =>
-      (totalAmountEur += this.calcService.convertToEuro(
-        prod.price,
-        prod.currency
-      ))
+        (totalAmountEur += this.calcService.convertToEuro(
+          prod.price,
+          prod.currency
+        ))
     );
 
     return totalAmountEur;
+  }
+
+  /**
+   * Entfernt "product" aus der aktuellen Bestellung.
+   *
+   * @param product zu entfernendes Produkt aus der aktuellen Bestellung
+   */
+  public removeProductFromActualOrder(product: Product) {
+    let index = this.actualOrder?.products.findIndex(
+      (p) => p.id === product.id
+    );
+
+    if (index >= 0) {
+      this.actualOrder?.products.splice(index, 1);
+    }
   }
 }
 

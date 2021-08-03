@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/shared/interfaces/product.interface';
 import { OrdersService } from 'src/app/shared/services/orders.service';
 
 @Component({
@@ -7,9 +8,9 @@ import { OrdersService } from 'src/app/shared/services/orders.service';
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-  constructor(private ordersService: OrdersService) {}
+  constructor(private ordersService: OrdersService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   @Input() order;
 
@@ -18,5 +19,14 @@ export class OrderComponent implements OnInit {
    */
   public getTotalAmoutEur() {
     return this.ordersService.getTotalAmountEur();
+  }
+
+  /**
+   * Entfernt "product" aus der aktuellen Bestellung.
+   *
+   * @param product zu entfernendes Produkt aus der aktuellen Bestellung
+   */
+  public removeProductFromActualOrder(product: Product) {
+    this.ordersService.removeProductFromActualOrder(product);
   }
 }
