@@ -2,11 +2,16 @@
 
 <div *ngIf="order?.products?.length > 0; else keineProdukteAusgewaehlt">
   <div *ngFor="let prod of order.products">
-    <app-order-product [prod]="prod" (removeProductFromActualOrderEventEmitter)="removeProductFromActualOrder($event)">
+    <app-order-product
+      [prod]="prod"
+      (removeProductFromActualOrderEventEmitter)="
+        removeProductFromActualOrder($event)
+      "
+    >
     </app-order-product>
   </div>
-
   <p>Gesamtsumme: {{ getTotalAmoutEur() | currency: "EUR" }}</p>
+  <p><button>>>> Jetzt Bestellen! <<<<</button></p>
 </div>
 
 <ng-template #keineProdukteAusgewaehlt>
