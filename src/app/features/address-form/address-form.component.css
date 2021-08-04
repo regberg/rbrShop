@@ -1,0 +1,45 @@
+div {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 5px;
+  background-color: #cebee9;
+  color: #411375;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+input {
+  margin: 10px 0px;
+  padding: 5px 10px;
+  border: 3px solid #e7dee3;
+  border-radius: 2px;
+  background-color: #f0d8e5;
+  color: #915da5;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+button {
+  background-color: #f0d8e5;
+  color: #915da5;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid magenta;
+  border-bottom: 2px solid magenta;
+}
+
+.invalid {
+  color: magenta;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+}

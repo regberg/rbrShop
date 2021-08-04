@@ -1,1 +1,103 @@
-<p>address-form works!</p>
+<div class="offset-md-0">
+  <div class="container">
+    <form [formGroup]="detailForm">
+      <!-- VORNAME -->
+      <div class="form-group">
+        <label for="firstName">Vorname:</label>
+        <input appChangeStyle type="text" class="form-control" id="firstName" formControlName="firstName" />
+      </div>
+      <div *ngIf="
+        detailForm.get('firstName').invalid &&
+        (detailForm.get('firstName').dirty ||
+          detailForm.get('firstName').touched)
+      ">
+        <div *ngIf="detailForm.get('firstName').errors.required" class="invalid">
+          Der Vorname ist ein Pflichtfeld!
+        </div>
+      </div>
+
+      <!-- NACHNAME -->
+      <div class="form-group">
+        <label for="lastName">Nachname:</label>
+        <input appChangeStyle type="text" class="form-control" id="lastName" formControlName="lastName" />
+      </div>
+      <div *ngIf="
+        detailForm.get('lastName').invalid &&
+        (detailForm.get('lastName').dirty || detailForm.get('lastName').touched)
+      ">
+        <div *ngIf="detailForm.get('lastName').errors.required" class="invalid">
+          Der Nachname ist ein Pflichtfeld!
+        </div>
+      </div>
+
+      <!-- STRASSE -->
+      <div class="form-group">
+        <label for="street">Straße:</label>
+        <input appChangeStyle type="text" class="form-control" id="street" formControlName="street" />
+      </div>
+      <div *ngIf="
+        detailForm.get('street').invalid &&
+        (detailForm.get('street').dirty || detailForm.get('street').touched)
+      ">
+        <div *ngIf="detailForm.get('street').errors.required" class="invalid">
+          Die Straße ist ein Pflichtfeld!
+        </div>
+      </div>
+
+      <!-- PLZ -->
+      <div class="form-group">
+        <label for="zipCode">PLZ:</label>
+        <input appChangeStyle type="text" class="form-control" id="zipCode" formControlName="zipCode" />
+      </div>
+      <div *ngIf="
+        detailForm.get('zipCode').invalid &&
+        (detailForm.get('zipCode').dirty || detailForm.get('zipCode').touched)
+      ">
+        <div *ngIf="detailForm.get('zipCode').errors.required" class="invalid">
+          Die PLZ ist ein Pflichtfeld!
+        </div>
+        <div *ngIf="
+          detailForm.get('zipCode').errors.minlength ||
+          detailForm.get('zipCode').errors.maxlength ||
+          detailForm.get('zipCode').errors.pattern
+        " class="invalid">
+          Die PLZ muss aus 5 Ziffern bestehen!
+        </div>
+      </div>
+
+      <!-- STADT -->
+      <div class="form-group">
+        <label for="city">Stadt:</label>
+        <input appChangeStyle type="text" class="form-control" id="city" formControlName="city" />
+      </div>
+      <div *ngIf="
+        detailForm.get('city').invalid &&
+        (detailForm.get('city').dirty || detailForm.get('city').touched)
+      ">
+        <div *ngIf="detailForm.get('city').errors.required" class="invalid">
+          Die Stadt ist ein Pflichtfeld!
+        </div>
+      </div>
+
+      <!-- STAAT -->
+      <div class="form-group">
+        <label for="country">Staat:</label>
+        <input appChangeStyle type="text" class="form-control" id="country" formControlName="country" />
+      </div>
+      <div *ngIf="
+        detailForm.get('country').invalid &&
+        (detailForm.get('country').dirty || detailForm.get('country').touched)
+      ">
+        <div *ngIf="detailForm.get('country').errors.required" class="invalid">
+          Der Staat ist ein Pflichtfeld!
+        </div>
+      </div>
+
+      <p>
+        <button type="submit" [disabled]="!detailForm.valid">
+          Bestellung abschicken
+        </button>
+      </p>
+    </form>
+  </div>
+</div>

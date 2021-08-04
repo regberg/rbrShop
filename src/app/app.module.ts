@@ -18,8 +18,8 @@ import { PageNotFoundComponent } from './features/page-not-found/page-not-found.
 import { ProductsComponent } from './features/products/products.component';
 import { ChangeBackgroundColorDirective } from './shared/directives/change-background-color.directive';
 import { ProductItemComponent } from './features/product-item/product-item.component';
-import { FormsModule } from '@angular/forms';
-import { ChangeBorderDirective } from './shared/directives/change-border.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChangeStyleDirective } from './shared/directives/change-style.directive';
 import { CalculateToEurPipe } from './shared/pipes/calculate-to-eur.pipe';
 import { CartComponent } from './features/cart/cart.component';
 import { OrderComponent } from './features/order/order.component';
@@ -41,7 +41,7 @@ import { AddressFormComponent } from './features/address-form/address-form.compo
     ProductsComponent,
     ChangeBackgroundColorDirective,
     ProductItemComponent,
-    ChangeBorderDirective,
+    ChangeStyleDirective,
     CalculateToEurPipe,
     CartComponent,
     OrderComponent,
@@ -55,6 +55,7 @@ import { AddressFormComponent } from './features/address-form/address-form.compo
     FontAwesomeModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
