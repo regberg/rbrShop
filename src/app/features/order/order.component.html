@@ -1,19 +1,27 @@
-<p>Offene Bestellung vom {{ order.date | date: "dd.MM.yyyy, HH:mm:ss" }}</p>
+<div *ngIf="!showAddressForm; else BestellungAbschliessen">
+  <p>Offene Bestellung vom {{ order.date | date: "dd.MM.yyyy, HH:mm:ss" }}</p>
 
-<div *ngIf="order?.products?.length > 0; else keineProdukteAusgewaehlt">
-  <div *ngFor="let prod of order.products">
-    <app-order-product
-      [prod]="prod"
-      (removeProductFromActualOrderEventEmitter)="
-        removeProductFromActualOrder($event)
-      "
-    >
-    </app-order-product>
+  <div *ngIf="order?.products?.length > 0; else keineProdukteAusgewaehlt">
+    <div *ngFor="let prod of order.products">
+      <app-order-product [prod]="prod" (removeProductFromActualOrderEventEmitter)="
+          removeProductFromActualOrder($event)
+        ">
+      </app-order-product>
+    </div>
+    <p>Gesamtsumme: {{ getTotalAmoutEur() | currency: "EUR" }}</p>
+
+    <p>
+      <button title="Ausgewählte Produkte verbindlich bestellen" (click)="setAddressFormVisible()">
+        Jetzt bestellen!
+      </button>
+    </p>
   </div>
-  <p>Gesamtsumme: {{ getTotalAmoutEur() | currency: "EUR" }}</p>
-  <p><button>>>> Jetzt Bestellen! <<<<</button></p>
+
+  <ng-template #keineProdukteAusgewaehlt>
+    <p>Es wurden keine Produkte ausgewählt!</p>
+  </ng-template>
 </div>
 
-<ng-template #keineProdukteAusgewaehlt>
-  <p>Es wurden keine Produkte ausgewählt!</p>
+<ng-template #BestellungAbschliessen>
+  <app-address-form></app-address-form>
 </ng-template>

@@ -8,11 +8,13 @@ import { OrdersService } from 'src/app/shared/services/orders.service';
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   @Input() order;
+
+  public showAddressForm = false;
 
   /**
    * @returns Liefert den zu zahlenden Betrag für die bestellten Produkte.
@@ -28,5 +30,12 @@ export class OrderComponent implements OnInit {
    */
   public removeProductFromActualOrder(product: Product) {
     this.ordersService.removeProductFromActualOrder(product);
+  }
+
+  /**
+   * Setzt "this.showAddressForm" auf "true".
+   */
+  public setAddressFormVisible() {
+    this.showAddressForm = true;
   }
 }

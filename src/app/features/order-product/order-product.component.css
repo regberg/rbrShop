@@ -18,6 +18,7 @@ button {
   background-color: #f0d8e5;
   color: #9e517e;
   margin-top: 2px;
+  border-radius: 7px;
 }
 
 a.link-colour:link {

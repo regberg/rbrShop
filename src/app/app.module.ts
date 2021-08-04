@@ -25,6 +25,7 @@ import { CartComponent } from './features/cart/cart.component';
 import { OrderComponent } from './features/order/order.component';
 import { OrderProductComponent } from './features/order-product/order-product.component';
 import { OrderProductDetailComponent } from './features/order-product-detail/order-product-detail.component';
+import { AddressFormComponent } from './features/address-form/address-form.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { OrderProductDetailComponent } from './features/order-product-detail/ord
     OrderComponent,
     OrderProductComponent,
     OrderProductDetailComponent,
+    AddressFormComponent,
   ],
   imports: [
     BrowserModule,
