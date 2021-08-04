@@ -55,7 +55,7 @@ import { AddressFormComponent } from './features/address-form/address-form.compo
     FontAwesomeModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {
