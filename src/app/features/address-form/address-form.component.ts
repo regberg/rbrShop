@@ -33,4 +33,11 @@ export class AddressFormComponent implements OnInit {
       country: ['Deutschland', Validators.required],
     });
   }
+
+  /**
+   * postOrder
+   */
+  public postOrder() {
+    console.log("postOrder()");
+  }
 }

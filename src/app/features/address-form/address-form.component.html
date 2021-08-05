@@ -1,16 +1,21 @@
 <div class="offset-md-0">
   <div class="container">
-    <form [formGroup]="detailForm">
+    <form [formGroup]="detailForm" (ngSubmit)="postOrder()">
+      <div *ngIf="detailForm.invalid" class="invalid">
+        Damit die Bestellung abgeschickt werden kann, müssen alle Eingaben
+        vollständig sein!
+      </div>
+
       <!-- VORNAME -->
       <div class="form-group">
         <label for="firstName">Vorname:</label>
         <input appChangeStyle type="text" class="form-control" id="firstName" formControlName="firstName" />
       </div>
       <div *ngIf="
-        detailForm.get('firstName').invalid &&
-        (detailForm.get('firstName').dirty ||
-          detailForm.get('firstName').touched)
-      ">
+          detailForm.get('firstName').invalid &&
+          (detailForm.get('firstName').dirty ||
+            detailForm.get('firstName').touched)
+        ">
         <div *ngIf="detailForm.get('firstName').errors.required" class="invalid">
           Der Vorname ist ein Pflichtfeld!
         </div>
@@ -22,9 +27,10 @@
         <input appChangeStyle type="text" class="form-control" id="lastName" formControlName="lastName" />
       </div>
       <div *ngIf="
-        detailForm.get('lastName').invalid &&
-        (detailForm.get('lastName').dirty || detailForm.get('lastName').touched)
-      ">
+          detailForm.get('lastName').invalid &&
+          (detailForm.get('lastName').dirty ||
+            detailForm.get('lastName').touched)
+        ">
         <div *ngIf="detailForm.get('lastName').errors.required" class="invalid">
           Der Nachname ist ein Pflichtfeld!
         </div>
@@ -36,9 +42,9 @@
         <input appChangeStyle type="text" class="form-control" id="street" formControlName="street" />
       </div>
       <div *ngIf="
-        detailForm.get('street').invalid &&
-        (detailForm.get('street').dirty || detailForm.get('street').touched)
-      ">
+          detailForm.get('street').invalid &&
+          (detailForm.get('street').dirty || detailForm.get('street').touched)
+        ">
         <div *ngIf="detailForm.get('street').errors.required" class="invalid">
           Die Straße ist ein Pflichtfeld!
         </div>
@@ -50,17 +56,17 @@
         <input appChangeStyle type="text" class="form-control" id="zipCode" formControlName="zipCode" />
       </div>
       <div *ngIf="
-        detailForm.get('zipCode').invalid &&
-        (detailForm.get('zipCode').dirty || detailForm.get('zipCode').touched)
-      ">
+          detailForm.get('zipCode').invalid &&
+          (detailForm.get('zipCode').dirty || detailForm.get('zipCode').touched)
+        ">
         <div *ngIf="detailForm.get('zipCode').errors.required" class="invalid">
           Die PLZ ist ein Pflichtfeld!
         </div>
         <div *ngIf="
-          detailForm.get('zipCode').errors.minlength ||
-          detailForm.get('zipCode').errors.maxlength ||
-          detailForm.get('zipCode').errors.pattern
-        " class="invalid">
+            detailForm.get('zipCode').errors.minlength ||
+            detailForm.get('zipCode').errors.maxlength ||
+            detailForm.get('zipCode').errors.pattern
+          " class="invalid">
           Die PLZ muss aus 5 Ziffern bestehen!
         </div>
       </div>
@@ -71,9 +77,9 @@
         <input appChangeStyle type="text" class="form-control" id="city" formControlName="city" />
       </div>
       <div *ngIf="
-        detailForm.get('city').invalid &&
-        (detailForm.get('city').dirty || detailForm.get('city').touched)
-      ">
+          detailForm.get('city').invalid &&
+          (detailForm.get('city').dirty || detailForm.get('city').touched)
+        ">
         <div *ngIf="detailForm.get('city').errors.required" class="invalid">
           Die Stadt ist ein Pflichtfeld!
         </div>
@@ -85,18 +91,16 @@
         <input appChangeStyle type="text" class="form-control" id="country" formControlName="country" />
       </div>
       <div *ngIf="
-        detailForm.get('country').invalid &&
-        (detailForm.get('country').dirty || detailForm.get('country').touched)
-      ">
+          detailForm.get('country').invalid &&
+          (detailForm.get('country').dirty || detailForm.get('country').touched)
+        ">
         <div *ngIf="detailForm.get('country').errors.required" class="invalid">
           Der Staat ist ein Pflichtfeld!
         </div>
       </div>
 
       <p>
-        <button type="submit" [disabled]="!detailForm.valid">
-          Bestellung abschicken
-        </button>
+        <button type="submit" [disabled]="detailForm.invalid">Bestellung abschicken</button>
       </p>
     </form>
   </div>
