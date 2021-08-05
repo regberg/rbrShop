@@ -16,7 +16,7 @@
   </div>
 
   <div class="col-sm-1">
-    <button title="Aus der Bestellung entfernen" (click)="clickOnTrash()">
+    <button [disabled]="disableTrash" title="Aus der Bestellung entfernen" (click)="clickOnTrash()">
       <fa-icon [icon]="faTrashAlt"></fa-icon>
     </button>
   </div>

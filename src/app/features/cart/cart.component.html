@@ -1,5 +1,5 @@
 <div *ngIf="getOrders()?.length > 0; else keineBestellungenVorhanden">
-  <div *ngFor="let order of getOrders()">
+  <div *ngFor="let order of getOrders().reverse()">
     <app-order [order]="order"></app-order>
   </div>
 </div>

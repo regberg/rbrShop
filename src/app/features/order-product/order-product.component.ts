@@ -13,6 +13,7 @@ export class OrderProductComponent implements OnInit {
   ngOnInit(): void { }
 
   @Input() prod;
+  @Input() disableTrash;
 
   @Output() removeProductFromActualOrderEventEmitter =
     new EventEmitter<Product>();

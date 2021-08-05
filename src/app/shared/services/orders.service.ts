@@ -81,6 +81,13 @@ export class OrdersService {
   }
 
   /**
+   * Setzt "this.actualOrder" auf NULL.
+   */
+  public resetActualOrder() {
+    this.actualOrder = null;
+  }
+
+  /**
    * @returns Liefert die Bestellung mit Status "actual".
    */
   public getActualOrder() {
@@ -95,6 +102,41 @@ export class OrdersService {
   }
 
   /**
+   * Setzt den Status des Order-Objekts mit id "orderId" entsprechend "status".
+   *
+   *  @param orderId id des zu ändernden Order-Objects
+   *
+   * @param status der zu setzende Statuswert
+   */
+  public setStatusOfOrder(orderId: number, status: Status): void {
+    let order: Order = this.getOrderById(orderId);
+
+    if (order) {
+      order.status = status;
+    }
+  }
+
+  /**
+   * @param orderId id des gesuchten Order-Objects
+   *
+   * @returns Liefert das Order-Object mit der id "orderId"
+   */
+  private getOrderById(orderId: number) {
+    return this.orders.find((o) => o.id === orderId);
+  }
+
+  /**
+   * Aktualisiert die vorhandene Menge der Produkte der aktuellen Bestellung.
+   */
+  public setActualAmountOfActualOrderProducts() {
+    this.actualOrder.products.forEach((p) => {
+      if (p.amount > 0) {
+        p.amount -= 1;
+      }
+    });
+  }
+
+  /**
    * @returns Liefert die Anzahl der Produkte,
    * die dem aktuellen Order-Objekt zugeordnet sind.
    */
@@ -104,6 +146,21 @@ export class OrdersService {
       : 0;
 
     return actualOrderProductCount;
+  }
+
+  /**
+   * Entfernt "product" aus der aktuellen Bestellung.
+   *
+   * @param product zu entfernendes Produkt aus der aktuellen Bestellung
+   */
+  public removeProductFromActualOrder(product: Product) {
+    let index = this.actualOrder?.products.findIndex(
+      (p) => p.id === product.id
+    );
+
+    if (index >= 0) {
+      this.actualOrder?.products.splice(index, 1);
+    }
   }
 
   /**
@@ -121,21 +178,6 @@ export class OrdersService {
     );
 
     return totalAmountEur;
-  }
-
-  /**
-   * Entfernt "product" aus der aktuellen Bestellung.
-   *
-   * @param product zu entfernendes Produkt aus der aktuellen Bestellung
-   */
-  public removeProductFromActualOrder(product: Product) {
-    let index = this.actualOrder?.products.findIndex(
-      (p) => p.id === product.id
-    );
-
-    if (index >= 0) {
-      this.actualOrder?.products.splice(index, 1);
-    }
   }
 }
 

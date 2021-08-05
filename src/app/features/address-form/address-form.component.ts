@@ -1,5 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Address } from 'src/app/shared/interfaces/address.interface';
 
 @Component({
   selector: 'app-address-form',
@@ -11,9 +12,10 @@ export class AddressFormComponent implements OnInit {
     this.initForm();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   public detailForm: FormGroup;
+  @Output() postOrderEventEmitter: EventEmitter<Address> = new EventEmitter();
 
   private initForm() {
     this.detailForm = this.fb.group({
@@ -35,9 +37,10 @@ export class AddressFormComponent implements OnInit {
   }
 
   /**
-   * postOrder
+   * Verschickt die Eingaben des Adressformulars mit Hilfe
+   * eines EventEmitter<Address>-Objekts.
    */
   public postOrder() {
-    console.log("postOrder()");
+    this.postOrderEventEmitter.emit(this.detailForm.getRawValue());
   }
 }
