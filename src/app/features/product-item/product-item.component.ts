@@ -31,4 +31,11 @@ export class ProductItemComponent implements OnInit {
   public clickOnCart() {
     this.assignProductToActualOrderEventEmitter.emit(this.product);
   }
+
+  /**
+   * @returns Liefert true, falls das Produkt mengenmäßig noch vorhanden ist.
+   */
+  isProductAvailable() {
+    return this.product.amount > 0;
+  }
 }

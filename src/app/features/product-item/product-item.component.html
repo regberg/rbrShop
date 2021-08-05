@@ -23,7 +23,8 @@
         </div>
 
         <div class="col-sm-11">
-          <button appChangeBackgroundColor title="In den Warenkorb" (click)="clickOnCart()">
+          <button appChangeBackgroundColor title="In den Warenkorb" (click)="clickOnCart()"
+            [disabled]="!isProductAvailable()">
             <fa-icon [icon]="faCartPlus"></fa-icon>
           </button>
         </div>
