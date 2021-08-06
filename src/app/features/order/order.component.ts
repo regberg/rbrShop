@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Status } from 'src/app/shared/enums/status.enum';
+import { Address } from 'src/app/shared/interfaces/address.interface';
 import { Product } from 'src/app/shared/interfaces/product.interface';
 import { OrdersService } from 'src/app/shared/services/orders.service';
 
@@ -16,6 +17,7 @@ export class OrderComponent implements OnInit {
   @Input() order;
 
   public showAddressForm = false;
+  public address: Address;
 
   /**
    * @returns Liefert den zu zahlenden Betrag für die bestellten Produkte.
@@ -41,12 +43,15 @@ export class OrderComponent implements OnInit {
   }
 
   /**
+   * - Setzt die Bestelladresse.
    * - Zeigt die Bestellansicht an.
    * - Aktualisiert das Warenkorbsymbol im Headerbereich.
    * - Setzt den Status von "this.order" auf "Status.completed".
    * - Setzt die aktuelle Bestellung auf NULL.
    */
-  public completeOrder() {
+  public completeOrder(address: Address) {
+    this.address = address;
+
     this.setAddressFormVisible(false);
     this.ordersService.setActualAmountOfActualOrderProducts();
     this.ordersService.setStatusOfOrder(this.order.id, Status.completed);

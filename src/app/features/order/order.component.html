@@ -5,7 +5,7 @@
 
   <ng-template #BestellungAbgeschlossen>
     <p>
-      Abgeschlossene Bestellung vom
+      Abgeschlossene Bestellung von {{address?.firstName}} {{address?.lastName}} vom
       {{ order.date | date: "dd.MM.yyyy, HH:mm:ss" }}
     </p>
   </ng-template>
@@ -33,5 +33,5 @@
 </div>
 
 <ng-template #BestellungAbschliessen>
-  <app-address-form (postOrderEventEmitter)="completeOrder()"></app-address-form>
+  <app-address-form (postOrderEventEmitter)="completeOrder($event)"></app-address-form>
 </ng-template>
