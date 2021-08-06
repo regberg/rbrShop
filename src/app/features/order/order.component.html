@@ -16,7 +16,7 @@
           removeProductFromActualOrder($event)" [disableTrash]="isOrderCompleted()">
       </app-order-product>
     </div>
-    <p>Gesamtsumme: {{ getTotalAmoutEur() | currency: "EUR" }}</p>
+    <p>Gesamtsumme: {{ totalAmountOrderEur | currency: "EUR" }}</p>
 
     <div *ngIf="!isOrderCompleted()">
       <p>
