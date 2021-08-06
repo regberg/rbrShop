@@ -19,7 +19,8 @@ export class ProductsService {
         'Reposition Trigeminal Nerve, Percutaneous Endoscopic Approach',
       price: '229.19',
       currency: 'RUB',
-      amount: 53,
+      // amount: 53,
+      amount: 0,
       image: 'assets/images/produktbilder/abstract-wave.svg',
     },
     {

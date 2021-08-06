@@ -22,9 +22,9 @@
           </h5>
         </div>
 
-        <div class="col-sm-11">
-          <button appChangeBackgroundColor title="In den Warenkorb" (click)="clickOnCart()"
-            [disabled]="!isProductAvailable()">
+        <div class="col-sm-11" [style.opacity]="isProductAvailable() ? 1 : 0.5">
+          <button appChangeBackgroundColor [disabled]="!isProductAvailable()"
+            [title]="isProductAvailable() ? 'In den Warenkorb': 'Nicht auf Lager'" (click)="clickOnCart()">
             <fa-icon [icon]="faCartPlus"></fa-icon>
           </button>
         </div>
