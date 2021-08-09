@@ -12,7 +12,7 @@ export class OrdersService {
   public orders: Order[] = [];
   private actualOrder;
 
-  constructor(private calcService: CalculationService) {}
+  constructor(private calcService: CalculationService) { }
 
   /**
    * Erzeugt ein neues Order-Objekt und fügt es "this.orders" hinzu.
@@ -129,7 +129,7 @@ export class OrdersService {
    * Aktualisiert die vorhandene Menge der Produkte der aktuellen Bestellung.
    */
   public setActualAmountOfActualOrderProducts() {
-    this.actualOrder.products.forEach((p) => {
+    this.actualOrder?.products.forEach((p) => {
       if (p.amount > 0) {
         p.amount -= 1;
       }
@@ -166,15 +166,15 @@ export class OrdersService {
   /**
    * @returns Liefert den zu zahlenden Betrag in EUR für die bestellten Produkte.
    */
-  public getTotalAmountEur() {
+  public getTotalAmountEur(orderId: number) {
     let totalAmountEur = 0;
 
-    this.getActualOrder()?.products.forEach(
+    this.getOrderById(orderId)?.products.forEach(
       (prod) =>
-        (totalAmountEur += this.calcService.convertToEuro(
-          prod.price,
-          prod.currency
-        ))
+      (totalAmountEur += this.calcService.convertToEuro(
+        prod.price,
+        prod.currency
+      ))
     );
 
     return totalAmountEur;

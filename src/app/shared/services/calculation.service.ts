@@ -15,7 +15,18 @@ export class CalculationService {
    *
    * @returns Liefert den Betrag "value" in EUR.
    */
-  public convertToEuro(value: number, currency: string): number {
+  public convertToEuro(value: number | string, currency: string): number {
+    const valueNumber = typeof value === 'number' ? value : parseFloat(value);
+
+    if (
+      value === undefined ||
+      value === null ||
+      !currency ||
+      isNaN(valueNumber)
+    ) {
+      return 0;
+    }
+
     let factor = 1;
 
     // Stand: 30.07.2021
@@ -34,6 +45,6 @@ export class CalculationService {
       }
     }
 
-    return value * factor;
+    return valueNumber * factor;
   }
 }

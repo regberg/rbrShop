@@ -26,6 +26,6 @@ export class HeaderCartComponent implements OnInit {
    * @returns Liefert den zu zahlenden Betrag in EUR der bestellten Produkte.
    */
   public getTotalAmountEur() {
-    return this.ordersService.getTotalAmountEur();
+    return this.ordersService.getTotalAmountEur(this.ordersService.getActualOrder()?.id);
   }
 }

@@ -5,15 +5,17 @@
 
   <ng-template #BestellungAbgeschlossen>
     <p>
-      Abgeschlossene Bestellung von {{address?.firstName}} {{address?.lastName}} vom
-      {{ order.date | date: "dd.MM.yyyy, HH:mm:ss" }}
+      Abgeschlossene Bestellung
+      <span *ngIf="address">von {{ address.firstName }} {{ address.lastName }}</span>
+      vom {{ order.date | date: "dd.MM.yyyy, HH:mm:ss" }}
     </p>
   </ng-template>
 
   <div *ngIf="order?.products?.length > 0; else keineProdukteAusgewaehlt">
     <div *ngFor="let prod of order.products">
       <app-order-product [prod]="prod" (removeProductFromActualOrderEventEmitter)="
-          removeProductFromActualOrder($event)" [disableTrash]="isOrderCompleted()">
+          removeProductFromActualOrder($event)
+        " [disableTrash]="isOrderCompleted()">
       </app-order-product>
     </div>
     <p>Gesamtsumme: {{ totalAmountOrderEur | currency: "EUR" }}</p>

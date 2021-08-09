@@ -11,23 +11,15 @@ import { OrdersService } from 'src/app/shared/services/orders.service';
 })
 export class OrderComponent implements OnInit {
   constructor(private ordersService: OrdersService) {
-    this.totalAmountOrderEur = this.getTotalAmoutEur();
   }
 
   ngOnInit(): void { }
 
   @Input() order;
+  @Input() totalAmountOrderEur;
 
-  public totalAmountOrderEur;
   public showAddressForm = false;
   public address: Address;
-
-  /**
-   * @returns Liefert den zu zahlenden Betrag für die bestellten Produkte.
-   */
-  private getTotalAmoutEur() {
-    return this.ordersService.getTotalAmountEur();
-  }
 
   /**
    * Entfernt "product" aus der aktuellen Bestellung.
